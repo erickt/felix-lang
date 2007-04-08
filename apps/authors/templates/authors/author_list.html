@@ -1,0 +1,11 @@
+{% extends "base_2col.html" %}
+
+{% block main-billboard %}Authors{% endblock %}
+
+{% block content %}
+<ul class="linklist">
+{% for object in object_list %}
+	<li><a href="/authors/{{ object.username }}">{{ object.first_name|escape }} {{ object.last_name|escape }} ({{ object.username }})</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

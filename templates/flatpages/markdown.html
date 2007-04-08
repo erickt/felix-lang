@@ -1,0 +1,9 @@
+{% extends "base_2col.html" %}
+
+{% load markup %}
+
+{% block billboard %}{{ flatpage.title }}{% endblock %}
+
+{% block content %}
+{{ flatpage.content|markdown:"tables,footnotes" }}
+{% endblock %}

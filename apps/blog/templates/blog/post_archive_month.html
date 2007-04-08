@@ -1,0 +1,9 @@
+{% extends "base_blog.html" %}
+
+{% block billboard %} : {{ month|date:"F Y" }}{% endblock %}
+
+{% block content %}
+{% for object in object_list %}
+	{% include "blog/post_body.html" %}
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base_authors.html" %}
+
+{% block billboard %} : {{ day|date:"F j, Y" }}{% endblock %}
+
+{% block content %}
+{% for object in object_list %}
+	{% include "blog/post.html" %}
+{% endfor %}
+{% endblock %}

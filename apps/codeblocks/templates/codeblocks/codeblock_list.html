@@ -1,0 +1,36 @@
+{% extends "base_codeblocks.html" %}
+
+{% block sidebar %}
+<hr/>
+<p>Contents</p>
+<ul class="linklist small">
+	{% for object in object_list %}
+		<li><a href="#{{ object.slug }}">{{ object.title }}</a></li>
+	{% endfor %}
+</ul>
+{% endblock %}
+
+{% block content %}
+<table id="codeblock-table">
+	{% for object in object_list %}
+		<tr>
+			<td class="codeblock-label">
+				<h3>{{ object.title|escape }}</h3>
+				{% if user.is_staff %}
+				<div class="small">
+					[<a href="/codeblocks/update/{{ object.slug }}">update</a>]
+					[<a href="/codeblocks/delete/{{ object.slug }}">delete</a>]
+				</div>
+				{% endif %}
+				<div class="small">{{ object.description }}</div>
+			</td>
+			<td class="codeblock-code">
+				<pre><code>{{ object.html }}</code></pre>
+			</td>
+			<td class="codeblock-code">
+				<pre><code>{{ object.output }}</code></pre>
+			</td>
+		</tr>
+	{% endfor %}
+</table>
+{% endblock %}

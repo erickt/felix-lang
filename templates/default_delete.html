@@ -1,0 +1,12 @@
+{% extends "base_forms.html" %}
+
+{% block content %}
+<form action="." method="post">
+	<h2>Are you sure?</h2>
+	<p>Are you sure you want to delete "<a href="{{ object.get_absolute_url }}">{{ object|escape }}</a>"?</p>
+	<div class="submit">
+		<input type="hidden" name="post" value="yes" />
+		<input type="submit" value="yes, I'm sure" />
+	</div>
+</form>
+{% endblock %}

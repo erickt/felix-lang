@@ -1,0 +1,43 @@
+table#form {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table#form tr {
+	border: 1px solid #CCC;
+}
+
+table#form td {
+	padding: 5px;
+}
+
+input, textarea, select {
+	font-weight: normal;
+	margin: 2px;
+	padding: 2px 3px;
+}
+
+input[type='text'], input[type='password'], textarea, select {
+	border: 1px solid #CCC;
+}
+
+/*
+input[type='submit'] {
+	border-color: #DDDDDD rgb(170, 170, 170) rgb(170, 170, 170) rgb(221, 221, 221);
+	border-style: solid;
+	border-width: 1px;
+}
+*/
+
+textarea#id_body {
+	height: 40.2em;
+	width: 600px;
+}
+
+div.submit {
+	padding: 10px;
+}
+
+textarea {
+	font-family: Monospace;
+}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+<link href="/media/site_media/css/forms.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<form action="." method="post">
+	<table id="form">
+	{{ form }}
+	</table>
+	<input type="submit" name="submit" value="Send"/>
+</form>
+{% endblock %}

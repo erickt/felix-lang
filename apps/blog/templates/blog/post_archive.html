@@ -1,0 +1,9 @@
+{% extends "base_blog.html" %}
+
+{% block main-billboard %}Latest Posts{% endblock %}
+
+{% block content %}
+{% for object in latest %}
+	{% include "blog/post.html" %}
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base_2col.html" %}
+
+{% load blog_tags %}
+
+{% block extrahead %}
+<link href="/media/site_media/css/blog.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block main-billboard %}Blog{% block billboard %}{% endblock %}{% endblock %}
+
+{% block sidebar %}
+{% get_post_dates month as months %}
+{% get_post_tags as tags %}
+{% get_post_authors as authors %}
+{% if months %}
+	<hr/>
+	<p>Blog Archives:</p>
+	<ul class="linklist">
+	{% for month in months %}
+		<li><a href="/blog/{{ month|date:"Y" }}/{{ month|date:"b" }}">{{ month|date:"F Y" }}</a></li>
+	{% endfor %}
+	</ul>
+{% endif %}
+{% if tags %}
+	<hr/>
+	<p>Blog Tags:</p>
+	<ul class="linklist">
+		{% for t in tags %}
+			<li>
+				<a href="/tags/{{ t.slug }}">{{ t.title|escape }}</a>
+				{% if user.is_staff %}
+					[<a href="/tags/{{ t.slug }}/update/">U</a>]
+					[<a href="/admin/tags/tag/{{ t.slug }}/delete/">X</a>]
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+{% endif %}
+{% if authors %}
+	<hr/>
+	<p>All Authors:</p>
+	<ul class="linklist">
+		{% for t in authors %}
+			<li><a href="/authors/{{ t.username }}">{{ t.username|escape }}</a></li>
+		{% endfor %}
+	</ul>
+{% endif %}
+{% endblock %}

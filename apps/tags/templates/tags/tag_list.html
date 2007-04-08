@@ -1,0 +1,11 @@
+{% extends "base_2col.html" %}
+
+{% block main-billboard %}Tags{% endblock %}
+
+{% block content %}
+<ul class="linklist">
+{% for object in object_list %}
+	<li><a href="{{ object.get_absolute_url }}">{{ object.title|escape }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

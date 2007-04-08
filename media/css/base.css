@@ -1,0 +1,163 @@
+body {
+	margin: 10px;
+	padding: 10px;
+	background-color: #dddddd;
+	font-family: Arial,Verdana,Geneva,"Bitstream Vera Sans",Helvetica,sans-serif;
+	font-size: 90%;
+}
+
+div.clearer {clear: left; line-height: 0; height: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+	/*margin: 0;*/
+}
+
+h1#headline {
+	font-size: 250%;
+	margin-top: .1em;
+	margin-bottom: .1em;
+}
+
+h1 {
+	font-size: 218%;
+	margin-top: .6em;
+	margin-bottom: .6em;
+}
+
+h2 {
+	font-size: 150%;
+	margin-top: 1em;
+	margin-bottom: .2em;
+	line-height: 1.2em;
+}
+
+div#main-container {
+	max-width: 100em;
+	min-width: 45em;
+	position: relative;
+	border: #aaa solid 1px;
+	background-color: white;
+	padding: 10px;
+}
+
+div#main-header {
+	display: block;
+	width: 100%;
+}
+
+div#main-billboard {
+	float: right;
+}
+
+h2.billboard {
+	background-color: #EEE;
+	border: 1px solid #CCC;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+table#main-layout {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td#main-sidebar, td#main-content {
+	vertical-align: top;
+	margin: 0px;
+	padding-left: 10px;
+}
+
+td#main-sidebar {
+  border: 1px solid #CCC;
+  background-color: #EEE;
+	padding: 10px;
+	width: 8em;
+}
+
+td#main-content {
+	padding-top: 0px;
+}
+
+hr {
+	border: 0;
+	width: 100%;
+	height: 1px;
+	color: #EEE;
+	background-color: #C2CAD8;
+}
+
+div#main-footer {
+	width: 100%;
+	text-align: center;
+	color: gray;
+}
+
+.small {
+	font-size: smaller;
+}
+
+.tiny {
+	font-size: x-small;
+}
+
+.quiet {
+	font-size: smaller;
+	color: gray;
+}
+
+a { 
+	text-decoration: none;
+	color: #A52A2A;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+ul.linklist { 
+	margin: 0px;
+	padding: 0px;
+}
+
+ul.linklist li {
+	list-style-type: none;
+}
+
+pre {
+  padding: 10px;
+  border: 1px solid #CCC;
+  overflow: auto;
+  background-color: #EEE;
+	color: black;
+}
+
+.synComment    { color: #0000FF }
+.synConstant   { color: #0000FF }
+.synIdentifier { color: #008B8B }
+.synStatement  { color: #A52A2A ; font-weight: bold }
+.synPreProc    { color: #A020F0 }
+.synType       { color: #2E8B57 ; font-weight: bold }
+.synSpecial    { color: #6A5ACD }
+.synUnderlined { color: #000000 ; text-decoration: underline }
+.synError      { color: #FFFFFF ; background: #FF0000 none }
+.synTodo       { color: #0000FF ; background: #FFFF00 none }
+
+p {
+	margin-top: 0.6em;
+	margin-bottom: 0.8em;
+}
+
+p.first {
+	margin-top: 0em;
+}
+
+ul.messagelist {
+	border: 1px solid #CCCCCC;
+	list-style-type: none;
+	padding: 10px;
+	margin: 0px 0px 10px 0px;
+}
+
+ul.messagelist li {
+}

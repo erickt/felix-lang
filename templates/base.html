@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Felix | {% block title %} The Smart Upgrade from C++{% endblock %}</title>
+	<link href="/media/site_media/css/base.css" rel="stylesheet" type="text/css" />
+	{% block extrahead %}{% endblock %}
+</head>
+<body>
+	<div id="main-container">
+		<div id="main-header">
+			<h1 id="headline"><a href="/">Felix Programming Language</a></h1>
+			<div class="clearer">&nbsp;</div>
+		</div>
+		<hr/>
+		{% if messages %}
+			<ul class="messagelist">{% for message in messages %}<li>{{ message|escape }}</li>{% endfor %}</ul>
+		{% endif %}
+		<table id="main-layout">
+			<tr>
+				<td id="main-sidebar">
+					<ul class="linklist">
+						<li><a href="/about">About Felix</a></li>
+						<li><a href="/download">Download</a></li>
+						<li><a href="/blog">Blog</a></li>
+						<li><a href="http://felix.sourceforge.net/doc/en_flx_doc_0001.html">Documentation</a></li>
+						<li><a href="http://code.felix-lang.org/">Development</a></li>
+						<li><a href="/discuss">Discuss</a></li>
+					</ul>
+					{% if user.is_staff %}
+					<hr/>
+					<p>Admin:</p>
+					<ul class="linklist">
+						<li><a href="/blog/post/create">New Blog Post</a></li>
+						<li><a href="/tags/create">New Tag</a></li>
+						<li><a href="/codeblocks/create">New Code Block</a></li>
+					</ul>
+					{% endif %}
+					{% block main-sidebar %}
+						{% block sidebar %}{%endblock %}
+					{% endblock %}
+				</td>
+				<td id="main-content">
+					{% block main-content %}
+						{% block content %}{% endblock %}
+					{% endblock %}
+				</td>
+			</tr>
+		</table>
+		<hr/>
+		<div id="main-footer" class="tiny">
+			This website was created using <a href="http://www.djangoproject.com">Django</a>. Design by Erick Tryzelaar.
+		</div>
+	</div>
+</body>	
+</html>

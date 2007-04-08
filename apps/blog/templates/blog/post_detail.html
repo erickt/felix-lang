@@ -1,0 +1,7 @@
+{% extends "base_blog.html" %}
+
+{% block main-billboard %}{{ object.title|escape }}{% endblock %}
+
+{% block content %}
+{% include "blog/post_body.html" %}
+{% endblock %}

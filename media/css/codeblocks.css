@@ -1,0 +1,34 @@
+table#codeblock-table {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+table#codeblock-table td {
+	vertical-align: top;
+}
+
+table#codeblock-table pre {
+	margin: 0;
+  border: 0;
+	background-color: 0;
+}
+
+td.codeblock-code {
+  background-color: #EEE;
+  border: 1px solid #CCC;
+}
+
+td.codeblock-table {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+}
+
+td.codeblock-label h3 {
+        margin: 0;
+}
+
+td.codeblock-code {
+        width: 40%;
+}

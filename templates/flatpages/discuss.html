@@ -1,0 +1,24 @@
+{% extends "base_2col.html" %}
+
+{% block billboard %}Discussing Felix{% endblock %}
+
+{% block content %}
+<blockquote>
+	WARNING: There is a bug in registering to a google groups mailing list via 
+	email. If you subscribe to, say, felix-language[at]groups.google.com, do 
+	<strong>not</strong> click on the url in the confirmation email. Just reply to it. 
+	This will let you post emails to the list. If you don't do this, you will 
+	not be able to mail the group.
+</blockquote>
+
+<dl>
+	<dfn><a href="http://groups.google.com/group/felix-language">felix language</a></dfn>
+	<dd>Discussing how to use felix, and the theory behind it.</dd>
+
+	<dfn><a href="http://groups.google.com/group/felix-implementation">felix implementation</a></dfn>
+	<dd>Discussing the actual implementation of the language.</dd>
+
+	<dfn><a href="http://groups.google.com/group/felix-commits">felix commits</a></dfn>
+	<dd>A read only list of repository commits from development.</dd>
+</dl>
+{% endblock %}

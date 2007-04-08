@@ -1,0 +1,28 @@
+{% extends "base_2col.html" %}
+
+{% block extrahead %}
+<link href="/media/site_media/css/blog.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block main-billboard %}Authors : {{ author.username|escape }}{% block billboard %}{% endblock %}{% endblock %}
+
+{% block sidebar %}
+{% if months %}
+	<hr/>
+	<p>Author Archives:</p>
+	<ul class="linklist">
+	{% for month in months %}
+		<li><a href="/authors/{{ author.username }}/{{ month|date:"Y" }}/{{ month|date:"b" }}">{{ month|date:"F Y" }}</a></li>
+	{% endfor %}
+	</ul>
+{% endif %}
+{% if authors %}
+	<hr/>
+	<p>All Authors:</p>
+	<ul class="linklist">
+		{% for t in authors %}
+			<li><a href="/authors/{{ t.username }}">{{ t.username|escape }}</a></li>
+		{% endfor %}
+	</ul>
+{% endif %}
+{% endblock %}

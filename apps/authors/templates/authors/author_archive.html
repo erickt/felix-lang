@@ -1,0 +1,7 @@
+{% extends "base_authors.html" %}
+
+{% block content %}
+{% for object in latest %}
+	{% include "blog/post.html" %}
+{% endfor %}
+{% endblock %}

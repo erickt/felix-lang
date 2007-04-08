@@ -1,0 +1,102 @@
+# Django settings for felix_website project.
+
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BIN_DIR = os.path.abspath(os.path.join(BASE_DIR, 'bin'))
+PROJECT_DIR = os.path.abspath(os.path.join(BASE_DIR, '..'))
+
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+
+ADMINS = (
+    # ('Your Name', 'your_email@domain.com'),
+)
+
+MANAGERS = ADMINS
+
+DATABASE_ENGINE = 'sqlite3'     # 'postgresql', 'mysql', 'sqlite3' or 'ado_mssql'.
+DATABASE_NAME = os.path.join(PROJECT_DIR, 'project.db')  # Or path to database file if using sqlite3.
+DATABASE_USER = ''              # Not used with sqlite3.
+DATABASE_PASSWORD = ''          # Not used with sqlite3.
+DATABASE_HOST = ''              # Set to empty string for localhost. Not used with sqlite3.
+DATABASE_PORT = ''              # Set to empty string for default. Not used with sqlite3.
+
+# Local time zone for this installation. All choices can be found here:
+# http://www.postgresql.org/docs/8.1/static/datetime-keywords.html#DATETIME-TIMEZONE-SET-TABLE
+# If running in a Windows environment this must be set to the same as your
+# system time zone.
+TIME_ZONE = 'US/Pacific'
+
+# Language code for this installation. All choices can be found here:
+# http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
+# http://blogs.law.harvard.edu/tech/stories/storyReader$15
+LANGUAGE_CODE = 'en-us'
+
+SITE_ID = 1
+
+# If you set this to False, Django will make some optimizations so as not
+# to load the internationalization machinery.
+USE_I18N = True
+
+# Absolute path to the directory that holds media.
+# Example: "/home/media/media.lawrence.com/"
+MEDIA_ROOT = ''
+
+# URL that handles the media served from MEDIA_ROOT.
+# Example: "http://media.lawrence.com"
+MEDIA_URL = ''
+
+# URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
+# trailing slash.
+# Examples: "http://foo.com/media/", "/media/".
+ADMIN_MEDIA_PREFIX = '/media/admin_media/'
+
+# List of callables that know how to import templates from various sources.
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.load_template_source',
+    'django.template.loaders.app_directories.load_template_source',
+#     'django.template.loaders.eggs.load_template_source',
+)
+
+MIDDLEWARE_CLASSES = (
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.middleware.doc.XViewMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+)
+
+ROOT_URLCONF = 'felix_website.urls'
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
+)
+
+INSTALLED_APPS = (
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.admin',
+    'django.contrib.flatpages',
+    'django.contrib.comments',
+    'django.contrib.markup',
+    'django.contrib.contenttypes',
+    'django.contrib.formtools',
+    'felix_website.apps.blog',
+    'felix_website.apps.tags',
+    'felix_website.apps.authors',
+    'felix_website.apps.vimcolor',
+    'felix_website.apps.codeblocks',
+)
+
+LYNX_CFG = os.path.join(PROJECT_DIR, 'lynx.cfg')
+
+#EMAIL_HOST = 'localhost'
+
+BLOG_MESSAGE_ID_PREFIX='felix-blog-post'
+BLOG_MESSAGE_ID_SUFFIX='@felix-lang.org'
+
+if os.path.exists(os.path.join(PROJECT_DIR, 'settings_local.py')):
+    execfile(os.path.join(PROJECT_DIR, 'settings_local.py'))

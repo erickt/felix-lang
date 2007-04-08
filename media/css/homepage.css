@@ -1,0 +1,26 @@
+table#introduction {
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+}
+
+table#introduction td {
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+}
+
+div#code {
+	text-align: center;
+	padding-left: 10px;
+	vertical-align: top;
+}
+
+table#codeblock-table td {
+	vertical-align: top;
+}
+
+.codeblock pre {
+	min-width: 15em;
+  text-align: left;
+}
