@@ -3,6 +3,8 @@ import cStringIO
 import tempfile
 import random
 import smtplib
+import time
+
 from email.Utils import formatdate
 
 from django.conf import settings
