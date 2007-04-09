@@ -49,7 +49,7 @@ def send_mail(subject, body, from_email, recipient_list, message_id=None):
     msg['Subject'] = subject
     msg['From'] = from_email
     msg['To'] = recipient_list
-    msg['Date'] = email.Utils.formatdate()
+    msg['Date'] = formatdate()
     msg['Message-ID'] = message_id or create_message_id()
 
     server = smtplib.SMTP(settings.EMAIL_HOST, settings.EMAIL_PORT)
