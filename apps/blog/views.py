@@ -11,22 +11,13 @@ from django.conf import settings
 
 from apps.blog.models import Post, BODY_TYPE_CHOICES
 from apps.tags.models import Tag
+from apps.blog.forms import PostForm, MailForm
+
 from apps.markdown import markdown
 from apps.vimcolor import highlight_in_html
 from apps.mail import send_mail, create_message_id, html2text
 
 # -----------------------------------------------------------------------------
-
-class PostForm(forms.Form):
-    title = forms.CharField(
-            widget=forms.TextInput(attrs={'size': 50}))
-    tags = forms.models.ModelMultipleChoiceField(
-            Tag.objects.all(),
-            required=False)
-    format = forms.ChoiceField(
-            choices=BODY_TYPE_CHOICES)
-    body = forms.CharField(
-            widget=forms.Textarea(attrs={'rows': '10', 'cols': '40'}))
 
 _re_slug = re.compile(r'\W+')
 
@@ -76,12 +67,14 @@ def add_edit_post(request, id=None):
                     request.user.message_set.create(
                             message=msg + ' ' + 'You may add another post below.')
 
-                    return HttpResponseRedirect('/blog/create/')
+                    return HttpResponseRedirect('/blog/post/create/')
                 elif request.has_key('_continue'):
                     request.user.message_set.create(
                             message=msg + ' ' + 'You may edit it again below.')
 
                     return HttpResponseRedirect('/blog/post/%s/update' % post.id)
+                elif request.has_key('_sendmail'):
+                    return HttpResponseRedirect('/blog/post/%s/mail' % post.id)
                 else:
                     request.user.message_set.create(message=msg)
                     return HttpResponseRedirect('/blog/')
@@ -97,21 +90,12 @@ def add_edit_post(request, id=None):
             'body': post.body,
         })
 
-    return render_to_response('default_create.html', {
+    return render_to_response('blog/post_create.html', {
         'form': form,
     }, RequestContext(request))
 add_edit_post = login_required(add_edit_post)
 
 # -----------------------------------------------------------------------------
-
-class MailForm(forms.Form):
-    to = forms.CharField(
-            widget=forms.TextInput(attrs={'size': 50}))
-    title = forms.CharField(
-            widget=forms.TextInput(attrs={'size': 50}))
-    body = forms.CharField(
-            widget=forms.Textarea(attrs={'rows': '10', 'cols': '40'}))
-
 
 def mail_post(request, id):
     post = get_object_or_404(Post, pk=id)
@@ -141,6 +125,7 @@ def mail_post(request, id):
             body = html2text(post.body)
 
         form = MailForm({
+            'to': 'felix-language@googlegroups.com',
             'title': post.title,
             'body': body,
         })
