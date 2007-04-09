@@ -37,20 +37,20 @@ def html2text(text):
 
 def create_message_id():
     try:
-        random_bits = str(random.getrandbits(64))
+        random_bits = str(random.getrandbits(32))
     except AttributeError: # Python 2.3 doesn't have random.getrandbits().
-        random_bits = ''.join([random.choice('1234567890') for i in range(19)])
+        random_bits = ''.join([random.choice('0123456789ABCDEF') for i in range(19)])
 
-    return "%d.%s@%s" % (time.time(), random_bits, DNS_NAME)
+    return "%X.%s@%s" % (int(time.time()), random_bits, DNS_NAME)
 
 
 def send_mail(subject, body, from_email, recipient_list, message_id=None):
-    msg = SafeMIMEText(body, settings.DEFAULT_CHARSET)
+    msg = SafeMIMEText(body)
     msg['Subject'] = subject
     msg['From'] = from_email
-    msg['To'] = recipient_list
+    msg['To'] = ', '.join(recipient_list)
     msg['Date'] = formatdate()
-    msg['Message-ID'] = message_id or create_message_id()
+    msg['Message-Id'] = '<%s>' % (message_id or create_message_id())
 
     server = smtplib.SMTP(settings.EMAIL_HOST, settings.EMAIL_PORT)
     try:
