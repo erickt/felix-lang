@@ -38,6 +38,8 @@ div#main-container {
 	border: #aaa solid 1px;
 	background-color: white;
 	padding: 10px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 div#main-header {
