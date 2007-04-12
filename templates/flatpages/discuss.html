@@ -3,39 +3,67 @@
 {% block billboard %}Discussing Felix{% endblock %}
 
 {% block content %}
+<p>Hosted by Google Groups.</p>
+
 <blockquote>
-	WARNING: There is a bug in registering to a google groups mailing list via 
-	email. If you subscribe to, say, felix-language[at]groups.google.com, do 
-	<strong>not</strong> click on the url in the confirmation email. Just reply to it. 
-	This will let you post emails to the list. If you don't do this, you will 
-	not be able to mail the group.
+	<strong>WARNING</strong>: There is a bug in registering to a google groups 
+	mailing list via email. If you subscribe to a mailing list via email, do 
+	<strong>not</strong> click on the url in the confirmation email. Just reply 
+	to it. This will let you post emails to the list. If you don't do this, you 
+	will not be able to mail the group.
 </blockquote>
 
 <dl>
 	<p>
-		<dfn><a href="http://groups.google.com/group/felix-language">felix language</a></dfn>
-		<dd>Discussing how to use felix, and the theory behind it.</dd>
-	</p>
-
-	<p>
-		<dfn><a href="http://groups.google.com/group/felix-implementation">felix implementation</a></dfn>
-		<dd>Discussing the actual implementation of the language.</dd>
-	</p>
-
-	<p>
-		<dfn><a href="http://groups.google.com/group/felix-commits">felix commits</a></dfn>
+		<dfn><a href="http://groups.google.com/group/felix-language">Felix Language</a>:</dfn>
 		<dd>
-			A read only list of repository commits from development. If subscribed 
-			though, replies will be forwarded to felix-implementation.
+			<p>Discussing how to use Felix, and the theory behind it.</p>
+			<strong>Subscribe to Felix Language:</strong>
+			<form action="http://groups.google.com/group/felix-language/boxsubscribe">
+				Email: <input type=text name=email><input type=submit name="sub" value="Subscribe">
+			</form>
 		</dd>
 	</p>
 
 	<p>
-		<dfn><a href="http://groups.google.com/group/felix-tickets">felix tickets</a></dfn>
+		<dfn><a href="http://groups.google.com/group/felix-implementation">Felix Implementation</a>:</dfn>
 		<dd>
-			A read only mailing list to follow the trac tickets. If subscribed 
-			though, the mail can be replied to directly to get the response added
-			to the database.
+			<p>
+				Discussing the actual implementation of the language. Questions on how
+				to use Felix should go to <a href="http://groups.google.com/group/felix-language">Felix Language</a>.
+			</p>
+			<strong>Subscribe to Felix Implementation:</strong>
+			<form action="http://groups.google.com/group/felix-implementation/boxsubscribe">
+				Email: <input type=text name=email><input type=submit name="sub" value="Subscribe">
+			</form>
+		</dd>
+	</p>
+
+	<p>
+		<dfn><a href="http://groups.google.com/group/felix-commits">Felix Commits</a>:</dfn>
+		<dd>
+			<p>
+				A read only list of repository commits from development. Responses via email
+				will be forwarded to <a href="http://groups.google.com/group/felix-implementation">Felix Implementation</a>.
+			</p>
+			<strong>Subscribe to Felix Commits:</strong>
+			<form action="http://groups.google.com/group/felix-commits/boxsubscribe">
+				Email: <input type=text name=email><input type=submit name="sub" value="Subscribe">
+			</form>
+		</dd>
+	</p>
+
+	<p>
+		<dfn><a href="http://groups.google.com/group/felix-tickets">Felix Tickets</a>:</dfn>
+		<dd>
+			<p>
+				A read only mailing list to follow the trac tickets. Responses via email
+				will be added to the database.
+			</p>
+			<strong>Subscribe to Felix Tickets:</strong>
+			<form action="http://groups.google.com/group/felix-tickets/boxsubscribe">
+				Email: <input type=text name=email><input type=submit name="sub" value="Subscribe">
+			</form>
 		</dd>
 	</p>
 </dl>
