@@ -21,6 +21,6 @@ table#codeblock-table td {
 }
 
 .codeblock pre {
-	min-width: 15em;
+	width: 25em;
   text-align: left;
 }
