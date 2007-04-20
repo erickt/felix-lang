@@ -22,6 +22,7 @@ class CodeBlockForm(forms.Form):
     code = forms.CharField(
             widget=forms.Textarea(attrs={'rows': '10', 'cols': '40'}))
     output = forms.CharField(
+            required=False,
             widget=forms.Textarea(attrs={'rows': '10', 'cols': '40'}))
     html = forms.CharField(
             help_text='optional. use html',
