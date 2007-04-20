@@ -11,9 +11,13 @@ table#introduction td {
 }
 
 div#code {
-	text-align: center;
-	padding-left: 10px;
 	vertical-align: top;
+	margin: 0;
+	padding: 0;
+}
+
+div#code h4 {
+	text-align: center;
 }
 
 table#codeblock-table td {
@@ -21,6 +25,5 @@ table#codeblock-table td {
 }
 
 .codeblock pre {
-	width: 25em;
   text-align: left;
 }

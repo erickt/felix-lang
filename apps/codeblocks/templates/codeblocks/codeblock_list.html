@@ -1,13 +1,14 @@
 {% extends "base_codeblocks.html" %}
 
 {% block sidebar %}
-<hr/>
-<p>Contents</p>
-<ul class="linklist small">
-	{% for object in object_list %}
-		<li><a href="#{{ object.slug }}">{{ object.title }}</a></li>
-	{% endfor %}
-</ul>
+<div class="sidebar">
+	<h3 class="sidebar-title">Contents</h3>
+	<ul class="linklist">
+		{% for object in object_list %}
+			<li><a href="#{{ object.slug }}">{{ object.title }}</a></li>
+		{% endfor %}
+	</ul>
+</div>
 {% endblock %}
 
 {% block content %}

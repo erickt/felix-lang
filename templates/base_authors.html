@@ -8,21 +8,23 @@
 
 {% block sidebar %}
 {% if months %}
-	<hr/>
-	<p>Author Archives:</p>
+<div class="sidebar">
+	<h3 class="sidebar-title">Author Archives:</h3>
 	<ul class="linklist">
 	{% for month in months %}
 		<li><a href="/authors/{{ author.username }}/{{ month|date:"Y" }}/{{ month|date:"b" }}">{{ month|date:"F Y" }}</a></li>
 	{% endfor %}
 	</ul>
+</div>
 {% endif %}
 {% if authors %}
-	<hr/>
-	<p>All Authors:</p>
+<div class="sidebar">
+	<h3 class="sidebar-title">All Authors:</h3>
 	<ul class="linklist">
 		{% for t in authors %}
 			<li><a href="/authors/{{ t.username }}">{{ t.username|escape }}</a></li>
 		{% endfor %}
 	</ul>
+</div>
 {% endif %}
 {% endblock %}

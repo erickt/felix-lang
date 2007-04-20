@@ -9,50 +9,61 @@
 </head>
 <body>
 	<div id="main-container">
-		<div id="main-header">
-			<h1 id="headline"><a href="/">Felix Programming Language</a></h1>
-			<div class="clearer">&nbsp;</div>
-		</div>
-		<hr/>
-		{% if messages %}
-			<ul class="messagelist">{% for message in messages %}<li>{{ message|escape }}</li>{% endfor %}</ul>
-		{% endif %}
-		<table id="main-layout">
-			<tr>
-				<td id="main-sidebar">
-					<ul class="linklist">
-						{% comment %}<li><a href="/about">About Felix</a></li>{% endcomment %}
-						<li><a href="/download">Download</a></li>
-						<li><a href="/blog">Blog</a></li>
-						<li><a href="http://felix.sourceforge.net/doc/en_flx_doc_0001.html">Documentation</a></li>
-						<li><a href="http://code.felix-lang.org/wiki">Wiki</a></li>
-						<li><a href="/discuss">Discuss</a></li>
-						<li><a href="http://code.felix-lang.org/wiki/Development">Develop</a></li>
-					</ul>
-					{% if user.is_staff %}
-					<hr/>
-					<p>Admin:</p>
-					<ul class="linklist">
-						<li><a href="/blog/post/create">New Blog Post</a></li>
-						<li><a href="/tags/create">New Tag</a></li>
-						<li><a href="/codeblocks/create">New Code Block</a></li>
-					</ul>
-					{% endif %}
-					{% block main-sidebar %}
-						{% block sidebar %}{%endblock %}
-					{% endblock %}
-				</td>
-				<td id="main-content">
-					{% block main-content %}
-						{% block content %}{% endblock %}
-					{% endblock %}
-				</td>
-			</tr>
+		<h1 id="headline"><a href="/">Felix Programming Language</a></h1>
+		<form id="searchbox_015933594045759905655:xl2zq3t5w3y" action="http://www.google.com/search">
+		<table id="main-header">
+			<tr><td>
+				<ul id="nav-list">
+					<li id="active"><a href="/" id="current">Home</a></li>
+					<li><a href="/blog">Blog</a></li>
+					<li><a href="/download">Download</a></li>
+					<li><a href="http://felix.sourceforge.net/doc/en_flx_doc_0001.html">Documentation</a></li>
+					<li><a href="http://code.felix-lang.org/wiki">Wiki</a></li>
+					<li><a href="/discuss">Discuss</a></li>
+					<li><a href="http://code.felix-lang.org/wiki/Development">Develop</a></li>
+				</ul>
+			</td><td id="google-search">
+				<input type="hidden" name="cx" value="015933594045759905655:xl2zq3t5w3y" />
+				<input type="hidden" name="cof" value="FORID:0" />
+				<input name="q" type="text" size="20" />
+				<input type="submit" name="sa" value="Search"/>
+			</td></tr>
 		</table>
-		<hr/>
-		<div id="main-footer" class="tiny">
-			This website was created using <a href="http://www.djangoproject.com">Django</a>. Design by Erick Tryzelaar.
+	</form>
+	<div id="main-layout">
+		<div id="main-sidebar">
+			{% if user.is_staff %}
+			<div class="sidebar">
+				<h3 class="sidebar-title">Admin:</h3>
+				<ul class="linklist">
+					<li><a href="/blog/post/create">New Blog Post</a></li>
+					<li><a href="/tags/create">New Tag</a></li>
+					<li><a href="/codeblocks/create">New Code Block</a></li>
+				</ul>
+			</div>
+			{% endif %}
+			{% block main-sidebar %}
+				{% block sidebar %}{%endblock %}
+			{% endblock %}
+		</div>
+		<div id="main-content">
+			{% if messages %}
+			<div class="messagebox">
+				<ul>
+					{% for message in messages %}
+					<li>{{ message|escape }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% endif %}
+			{% block main-content %}
+				{% block content %}{% endblock %}
+			{% endblock %}
 		</div>
 	</div>
+	<div id="main-footer" class="tiny">
+		This website was created using <a href="http://www.djangoproject.com">Django</a>.
+	</div>
+</div>
 </body>	
 </html>

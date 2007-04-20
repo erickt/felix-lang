@@ -13,17 +13,18 @@
 {% get_post_tags as tags %}
 {% get_post_authors as authors %}
 {% if months %}
-	<hr/>
-	<p>Blog Archives:</p>
+<div class="sidebar">
+	<h3 class="sidebar-title">Blog Archives:</h3>
 	<ul class="linklist">
 	{% for month in months %}
 		<li><a href="/blog/{{ month|date:"Y" }}/{{ month|date:"b" }}">{{ month|date:"F Y" }}</a></li>
 	{% endfor %}
 	</ul>
+</div>
 {% endif %}
 {% if tags %}
-	<hr/>
-	<p>Blog Tags:</p>
+<div class="sidebar">
+	<h3 class="sidebar-title">Blog Tags:</h3>
 	<ul class="linklist">
 		{% for t in tags %}
 			<li>
@@ -35,14 +36,16 @@
 			</li>
 		{% endfor %}
 	</ul>
+</div>
 {% endif %}
 {% if authors %}
-	<hr/>
-	<p>All Authors:</p>
+<div class="sidebar">
+	<h3 class="sidebar-title">All Authors:</h3>
 	<ul class="linklist">
 		{% for t in authors %}
 			<li><a href="/authors/{{ t.username }}">{{ t.username|escape }}</a></li>
 		{% endfor %}
 	</ul>
+</div>
 {% endif %}
 {% endblock %}

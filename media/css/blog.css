@@ -1,3 +1,8 @@
+h2.blog-title {
+	margin-top: 0;
+
+}
+
 p.date {
 	font-size: smaller;
 	color: gray;

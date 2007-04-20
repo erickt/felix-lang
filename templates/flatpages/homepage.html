@@ -9,57 +9,73 @@
 <link href="/media/site_media/css/blog.css" rel="stylesheet" type="text/css" />
 {% endblock %}
 
+{% block main-sidebar %}
+{% get_random_codeblock as codeblock %}
+<div class="sidebar">
+	<h3 class="sidebar-title">Mailing Lists:</h3>
+	<ul class="linklist">
+		<li><a href="http://groups.google.com/group/felix-language">Felix Language</a></li>
+		<li><a href="http://groups.google.com/group/felix-implementation">Felix Implementation</a></li>
+	</ul>
+</div>
+
+{% if codeblock %}
+<div class="sidebar">
+	<div id="code">
+		<div class="codeblock-title">
+			<h3 class="sidebar-title">Example: {{ codeblock.title|escape }}</h3>
+		</div>
+		<div>{{ codeblock.description }}</div>
+		<div class="codeblock"><pre><code>{{ codeblock.html }}</code></pre></div>
+		{% if codeblock.output %}
+			<h3 class="sidebar-title">Output:</h3>
+			<div class="codeblock">
+				<pre><code>{{ codeblock.output }}</pre></code>
+			</div>
+		{% endif %}
+		<div class="small">
+			<a href="/codeblocks">see all</a>
+		</div>
+	</div>
+</div>
+{% endif %}
+{% endblock %}
+
 {% block content %}
-<table id="introduction">
-	<tr>
-		<td>	
-			<p class="first">
-			Felix is an advanced Algol like procedural programming language with a strong 
-			functional subsystem. It features ML style static typing, first class 
-			functions, pattern matching, garabge collection, polymorphism, and has 
-			built in support for high performance microthreading, regular expressions 
-			and context free parsing.
-			</p>
-			
-			<p>
-			The system provides a scripting harness so the language can be used like other 
-			scriptine languages such as Python and Perl, but underneath it generates 
-			native code to obtain high performance.
-			</p>
-			
-			<p>
-			A key feature of the system is that it uses the C/C++ object model, and 
-			provides an advanced binding sublanguage to support integration with C/C++ 
-			at both the source and object levels, both for embedding C/C++ data types 
-			and functions into Felix, and for embedding Felix into exitsing C++ 
-			architectures.
-			</p>
-			
-			<p>
-			The Felix compiler is written in Objective Caml, and generates ISO  C++ 
-			which should compile on any platform.
-			</p>
-		</td>
-		<td>
-			{% get_random_codeblock as codeblock %}
-			{% if codeblock %}
-				<div id="code">
-					<div class="codeblock-title">
-						<div style="text-align:center">Example: {{ codeblock.title|escape }}</div>
-					</div>
-					<div class="codeblock"><pre><code>{{ codeblock.html }}</code></pre></div>
-					<div class="small" style="float:right">
-						<a href="/codeblocks">see all</a>
-					</div>
-				</div>
-			{% endif %}
-		</td>
-	</tr>
-</table>
+<div id="introduction">
+	<p>
+	Felix is an advanced Algol like procedural programming language with a strong 
+	functional subsystem. It features ML style static typing, first class 
+	functions, pattern matching, garabge collection, polymorphism, and has 
+	built in support for high performance microthreading, regular expressions 
+	and context free parsing.
+	</p>
+	
+	<p>
+	The system provides a scripting harness so the language can be used like other 
+	scriptine languages such as Python and Perl, but underneath it generates 
+	native code to obtain high performance.
+	</p>
+	
+	<p>
+	A key feature of the system is that it uses the C/C++ object model, and 
+	provides an advanced binding sublanguage to support integration with C/C++ 
+	at both the source and object levels, both for embedding C/C++ data types 
+	and functions into Felix, and for embedding Felix into exitsing C++ 
+	architectures.
+	</p>
+	
+	<p>
+	The Felix compiler is written in Objective Caml, and generates ISO  C++ 
+	which should compile on any platform.
+	</p>
+</div>
 {% get_latest_blog_posts 4 as latest_posts %}
 
+<hr/>
+
 <div id="posts">
-	<h2 class="billboard">Weblog</h2>
+<h2 class="billboard">Latest News</h2>
 {% for object in latest_posts %}
 	{% include "blog/post.html" %}
 {% endfor %}

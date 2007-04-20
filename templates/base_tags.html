@@ -8,17 +8,18 @@
 
 {% block sidebar %}
 {% if months %}
-	<hr/>
-	<p>Tag Archives:</p>
+<div class="sidebar">
+	<h3 class="sidebar-title">Tag Archives:</h3>
 	<ul class="linklist">
 	{% for month in months %}
 		<li><a href="/tags/{{ tag.slug }}/{{ month|date:"Y" }}/{{ month|date:"b" }}">{{ month|date:"F Y" }}</a></li>
 	{% endfor %}
 	</ul>
+</div>
 {% endif %}
 {% if tags %}
-	<hr/>
-	<p>All Tags:</p>
+<div class="sidebar">
+	<h3 class="sidebar-title">All Tags:</h3>
 	<ul class="linklist">
 		{% for t in tags %}
 			<li>
@@ -30,5 +31,6 @@
 			</li>
 		{% endfor %}
 	</ul>
+</div>
 {% endif %}
 {% endblock %}
