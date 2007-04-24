@@ -16,7 +16,7 @@
 		<a href="/blog/post/{{ object.id }}/delete">delete</a>
 	{% endif %}
 </p>
-<p>{{ object.html_body }}</p>
+<div>{{ object.html_body }}</div>
 {% if object.message_id %}
 	<p class="small">
 		<a href="http://groups.google.com/groups?threadm={{ object.message_id }}">read comments</a>
