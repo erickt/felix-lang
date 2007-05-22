@@ -40,7 +40,7 @@
 {% endif %}
 {% if authors %}
 <div class="sidebar">
-	<h3 class="sidebar-title">All Authors:</h3>
+	<h3 class="sidebar-title">Authors:</h3>
 	<ul class="linklist">
 		{% for t in authors %}
 			<li><a href="/authors/{{ t.username }}">{{ t.username|escape }}</a></li>
