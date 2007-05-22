@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% load random_codeblock %}
-{% load vim_syntax_highlight %}
 {% load blog_tags %}
 
 {% block extrahead %}
@@ -21,21 +20,17 @@
 
 {% if codeblock %}
 <div class="sidebar">
-	<div id="code">
-		<div class="codeblock-title">
-			<h3 class="sidebar-title">Example: {{ codeblock.title|escape }}</h3>
+	<h3 class="sidebar-title">Example: {{ codeblock.title|escape }}</h3>
+	<p>{{ codeblock.description }}</p>
+	{{ codeblock.html }}
+	{% if codeblock.output %}
+		<h3 class="sidebar-title">Output:</h3>
+		<div class="codehilite">
+			<pre><code>{{ codeblock.output }}</code></pre>
 		</div>
-		<div>{{ codeblock.description }}</div>
-		<div class="codeblock"><pre><code>{{ codeblock.html }}</code></pre></div>
-		{% if codeblock.output %}
-			<h3 class="sidebar-title">Output:</h3>
-			<div class="codeblock">
-				<pre><code>{{ codeblock.output }}</code></pre>
-			</div>
-		{% endif %}
-		<div class="small">
-			<a href="/codeblocks">see all</a>
-		</div>
+	{% endif %}
+	<div class="small">
+		<a href="/codeblocks">see all</a>
 	</div>
 </div>
 {% endif %}
@@ -71,8 +66,6 @@
 	</p>
 </div>
 {% get_latest_blog_posts 4 as latest_posts %}
-
-<hr/>
 
 <div id="posts">
 <h2 class="billboard">Latest News</h2>

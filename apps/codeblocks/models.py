@@ -1,5 +1,7 @@
 from django.db import models
-from apps.vimcolor import highlight
+from pygments import highlight
+from pygments.lexers import get_lexer_by_name, guess_lexer
+from pygments.formatters import HtmlFormatter
 
 class CodeBlock(models.Model):
     title = models.CharField(maxlength=200)
@@ -24,9 +26,8 @@ class CodeBlock(models.Model):
 
     def save(self):
         if not self.html:
-            self.html = highlight(
-                    self.code.replace('\r\n', '\n'), 
-                    self.filetype)
+            lexer = get_lexer_by_name(self.filetype, stripnl=True, encoding='UTF-8')
+            self.html = highlight(self.code, lexer, HtmlFormatter())
 
         return super(CodeBlock, self).save()
 

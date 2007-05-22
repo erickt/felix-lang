@@ -1,29 +1,4 @@
-table#introduction {
-	border-collapse: collapse;
-	margin: 0;
-	padding: 0;
-}
-
-table#introduction td {
-	margin: 0;
-	padding: 0;
-	vertical-align: top;
-}
-
-div#code {
-	vertical-align: top;
-	margin: 0;
-	padding: 0;
-}
-
-div#code h4 {
-	text-align: center;
-}
-
-table#codeblock-table td {
-	vertical-align: top;
-}
-
-.codeblock pre {
-  text-align: left;
+#introduction {
+	border-bottom: solid 1px #C2CAD8;
+	margin-bottom: 0.5em;
 }

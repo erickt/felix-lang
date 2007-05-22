@@ -87,7 +87,6 @@ INSTALLED_APPS = (
     'felix_website.apps.blog',
     'felix_website.apps.tags',
     'felix_website.apps.authors',
-    'felix_website.apps.vimcolor',
     'felix_website.apps.codeblocks',
 )
 

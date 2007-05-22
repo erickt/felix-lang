@@ -14,7 +14,6 @@ from apps.tags.models import Tag
 from apps.blog.forms import PostForm, MailForm
 
 from apps.markdown import markdown
-from apps.vimcolor import highlight_in_html
 from apps.mail import send_mail, create_message_id, html2text
 
 # -----------------------------------------------------------------------------
@@ -25,15 +24,17 @@ def add_edit_post(request, id=None):
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
+            html_body = form.clean_data['body']
+            if form.clean_data['format'] == 'markdown':
+                html_body = markdown(form.clean_data['body'])
+                
             d = dict(
                 author=request.user, 
                 title=form.clean_data['title'],
                 slug=_re_slug.sub('-', form.clean_data['title'].lower()).strip('-'),
                 format=form.clean_data['format'],
                 body=form.clean_data['body'],
-                html_body=highlight_in_html(
-                    markdown(form.clean_data['body'])
-                ),
+                html_body=html_body,
             )
 
             if id is None:
