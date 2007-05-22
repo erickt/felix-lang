@@ -20,7 +20,7 @@ class Post(models.Model):
     author = models.ForeignKey(User)
     title = models.CharField(maxlength=200)
     slug = models.SlugField(prepopulate_from=('title',), unique_for_date='pub_date')
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, blank=True)
     format = models.CharField(maxlength=30, choices=BODY_TYPE_CHOICES)
     body = models.TextField(help_text='use html')
     html_body = models.TextField(blank=True)
@@ -34,7 +34,7 @@ class Post(models.Model):
         fields = (
             ('Tags', {'fields': ('tags',)}),
             ('Post', {'fields': ('author', 'title', 'format', 'body')}),
-            ('Optional', {'fields': ('slug', 'pub_date', 'mod_date'), 'classes': 'collapse'}),
+            ('Optional', {'fields': ('slug', 'pub_date', 'mod_date', 'html_body'), 'classes': 'collapse'}),
         )
 
         list_display = ('pub_date', 'mod_date', 'author', 'title', 'slug')
@@ -54,6 +54,9 @@ class Post(models.Model):
     def save(self):
         if not self.id:
             self.pub_date = datetime.now()
+
+        if not self.message_id:
+            self.message_id = ''
 
         self.mod_date = datetime.now()
 
