@@ -37,13 +37,13 @@ def add_edit_codeblock(request, slug=None):
         form = CodeBlockForm(request.POST)
         if form.is_valid():
             d = dict(
-                title=form.clean_data['title'],
-                slug=_re_slug.sub('-', form.clean_data['title'].lower()).strip('-'),
-                description=form.clean_data['description'],
-                filetype=form.clean_data['filetype'],
-                code=form.clean_data['code'],
-                output=form.clean_data['output'],
-                html=form.clean_data['html'],
+                title=form.cleaned_data['title'],
+                slug=_re_slug.sub('-', form.cleaned_data['title'].lower()).strip('-'),
+                description=form.cleaned_data['description'],
+                filetype=form.cleaned_data['filetype'],
+                code=form.cleaned_data['code'],
+                output=form.cleaned_data['output'],
+                html=form.cleaned_data['html'],
             )
 
             if slug is None:

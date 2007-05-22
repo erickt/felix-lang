@@ -45,8 +45,8 @@ def add_edit_tag(request, slug=None):
         form = TagForm(request.POST)
         if form.is_valid():
             d = dict(
-                title=form.clean_data['title'],
-                slug=_re_slug.sub('-', form.clean_data['title'].lower()).strip('-'),
+                title=form.cleaned_data['title'],
+                slug=_re_slug.sub('-', form.cleaned_data['title'].lower()).strip('-'),
             )
 
             if slug is None:

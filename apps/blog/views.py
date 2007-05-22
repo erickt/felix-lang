@@ -24,16 +24,16 @@ def add_edit_post(request, id=None):
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
-            html_body = form.clean_data['body']
-            if form.clean_data['format'] == 'markdown':
-                html_body = markdown(form.clean_data['body'])
+            html_body = form.cleaned_data['body']
+            if form.cleaned_data['format'] == 'markdown':
+                html_body = markdown(html_body)
                 
             d = dict(
                 author=request.user, 
-                title=form.clean_data['title'],
-                slug=_re_slug.sub('-', form.clean_data['title'].lower()).strip('-'),
-                format=form.clean_data['format'],
-                body=form.clean_data['body'],
+                title=form.cleaned_data['title'],
+                slug=_re_slug.sub('-', form.cleaned_data['title'].lower()).strip('-'),
+                format=form.cleaned_data['format'],
+                body=form.cleaned_data['body'],
                 html_body=html_body,
             )
 
@@ -42,7 +42,7 @@ def add_edit_post(request, id=None):
             else:
                 post = get_object_or_404(Post, pk=id)
                 post.__dict__.update(d)
-                post.tags = form.clean_data['tags']
+                post.tags = form.cleaned_data['tags']
 
             # check to make sure we don't have a blog with the same title
             posts = Post.objects
@@ -59,7 +59,7 @@ def add_edit_post(request, id=None):
                 post.save()
 
                 if id is None:
-                    post.tags = form.clean_data['tags']
+                    post.tags = form.cleaned_data['tags']
                     post.save()
 
                 msg = 'The post "%s" was added successfully.' % post
@@ -107,17 +107,17 @@ def mail_post(request, id):
             post.message_id = create_message_id()
 
             send_mail(
-                form.clean_data['title'],
-                form.clean_data['body'],
+                form.cleaned_data['title'],
+                form.cleaned_data['body'],
                 '%s %s <%s>' % (request.user.first_name, request.user.last_name, request.user.email),
-                [form.clean_data['to']],
+                [form.cleaned_data['to']],
                 post.message_id,
             )
             post.save()
 
             request.user.message_set.create(
                     message='The post "%s" was mailed successfully.' % \
-                    form.clean_data['title'])
+                    form.cleaned_data['title'])
             return HttpResponseRedirect('/blog/')
     else:
         if post.format == 'markdown':
