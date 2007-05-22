@@ -29,6 +29,10 @@ body {
 ol, ul {
 	list-style: none;
 }
+dd {
+	margin-left: 40px;
+	margin-bottom: 1em;
+}
 /* tables still need 'cellspacing="0"' in the markup */
 table {
 	border-collapse: collapse;
