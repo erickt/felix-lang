@@ -63,4 +63,8 @@ class Post(models.Model):
         return super(Post, self).save()
 
     def has_tags(self):
-        return self.tags.count()
+        # protect against printing an object that's not in the db yet
+        try:
+            return self.tags.count()
+        except ValueError:
+            return False

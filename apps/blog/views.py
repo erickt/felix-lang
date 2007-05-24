@@ -21,6 +21,7 @@ from apps.mail import send_mail, create_message_id, html2text
 _re_slug = re.compile(r'\W+')
 
 def add_edit_post(request, id=None):
+    post = None
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
@@ -55,6 +56,8 @@ def add_edit_post(request, id=None):
                     pub_date__day=post.pub_date.day, 
                     title=post.title).count():
                 form.errors.setdefault('title', []).append('must enter in a unique title for the day.')
+            elif request.has_key('_preview'):
+                pass
             else:
                 post.save()
 
@@ -93,6 +96,7 @@ def add_edit_post(request, id=None):
 
     return render_to_response('blog/post_create.html', {
         'form': form,
+        'object': post,
     }, RequestContext(request))
 add_edit_post = login_required(add_edit_post)
 

@@ -1,11 +1,16 @@
 {% extends "base_forms.html" %}
 
 {% block content %}
+{% if object %}
+{% include "blog/post.html" %}
+{% endif %}
+
 <form action="." method="post">
 	<table id="form">
 	{{ form }}
 	</table>
 	<div class="submit">
+		<input type="submit" name="_preview" value="Preview"/>
 		<input type="submit" name="_sendmail" value="Save and send mail"/>
 		<input type="submit" name="_addanother" value="Save and add another"/>
 		<input type="submit" name="_continue" value="Save and continue editing"/>
