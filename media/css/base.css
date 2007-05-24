@@ -5,12 +5,12 @@
 	padding: 10px;
 }
 
-#headline {
+#main-title {
 	font-size: 300%;
 	margin: 10px 0px 20px 0px;
 }
 
-#headline a {
+#main-title a {
 	text-decoration: none;
 }
 
