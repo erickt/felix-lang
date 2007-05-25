@@ -17,35 +17,38 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	vertical-align: baseline;
 	background-image: transparent;
 }
+
 /* remember to define focus styles! */
 :focus {
 	outline: 0;
 }
+
 body {
 	line-height: 1;
 	color: black;
 	background: white;
 }
+
 ol, ul {
 	list-style: none;
 }
-dd {
-	margin-left: 40px;
-	margin-bottom: 1em;
-}
+
 /* tables still need 'cellspacing="0"' in the markup */
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 caption, th, td {
 	text-align: left;
 	font-weight: normal;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: "";
 }
+
 blockquote, q {
 	quotes: "" "";
 }
@@ -86,6 +89,19 @@ p {
 	margin-bottom: 0.8em;
 }
 
+em {
+	text-decoration: underline;
+}
+
+strong {
+	font-weight: bold;
+}
+
+blockquote {
+	border-left: 2px solid #CCC;
+	padding-left: 10px;
+}
+
 input[type='text'], input[type='password'], textarea, select {
 	border: 1px solid #CCC;
 }
@@ -98,13 +114,12 @@ h4 { font-size: 100%; }
 h5 { font-size: 83%; }
 h6 { font-size: 67.25%; }
 
-
 h1 {
 	margin-top: .6em;
 	margin-bottom: .6em;
 }
 
-h2 {
+h2, h3, h4, h5, h6 {
 	margin-top: .2em;
 	margin-bottom: .2em;
 	line-height: 1.2em;
@@ -134,6 +149,11 @@ ul {
 
 ul > li > ul {
 	list-style-type: circle;
+}
+
+dd {
+	margin-left: 40px;
+	margin-bottom: 1em;
 }
 
 code {
