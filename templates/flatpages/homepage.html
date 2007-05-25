@@ -19,17 +19,15 @@
 </div>
 
 {% if codeblock %}
-<div class="sidebar">
+<div id="codeblock" class="sidebar">
 	<h3 class="sidebar-title">Example: {{ codeblock.title|escape }}</h3>
-	<p>{{ codeblock.description }}</p>
+	<p id="codeblock-description">{{ codeblock.description }}</p>
 	{{ codeblock.html }}
 	{% if codeblock.output %}
 		<h3 class="sidebar-title">Output:</h3>
-		<div class="codehilite">
-			<pre><code>{{ codeblock.output }}</code></pre>
-		</div>
+		<pre>{{ codeblock.output }}</pre>
 	{% endif %}
-	<div class="small">
+	<div id="codeblock-see-all">
 		<a href="/codeblocks">see all</a>
 	</div>
 </div>

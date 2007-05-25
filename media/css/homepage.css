@@ -2,3 +2,12 @@
 	border-bottom: solid 1px #C2CAD8;
 	margin-bottom: 0.5em;
 }
+
+#codeblock-description {
+	font-size: smaller;
+}
+
+#codeblock-see-all {
+	font-size: smaller;
+	margin-top: .5em;
+}
