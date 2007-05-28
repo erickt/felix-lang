@@ -88,6 +88,7 @@ INSTALLED_APPS = (
     'felix_website.apps.tags',
     'felix_website.apps.authors',
     'felix_website.apps.codeblocks',
+    'felix_website.apps.pygments',
 )
 
 LYNX_CFG = os.path.join(PROJECT_DIR, 'lynx.cfg')
