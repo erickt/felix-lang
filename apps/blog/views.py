@@ -28,9 +28,9 @@ def add_edit_post(request, id=None):
             html_body = form.cleaned_data['body']
             if form.cleaned_data['format'] == 'markdown':
                 html_body = markdown(html_body)
-                
+
             d = dict(
-                author=request.user, 
+                author=request.user,
                 title=form.cleaned_data['title'],
                 slug=_re_slug.sub('-', form.cleaned_data['title'].lower()).strip('-'),
                 format=form.cleaned_data['format'],
@@ -51,9 +51,9 @@ def add_edit_post(request, id=None):
                 posts = posts.exclude(id=post.id)
 
             if posts.filter(
-                    pub_date__year=post.pub_date.year, 
-                    pub_date__month=post.pub_date.month, 
-                    pub_date__day=post.pub_date.day, 
+                    pub_date__year=post.pub_date.year,
+                    pub_date__month=post.pub_date.month,
+                    pub_date__day=post.pub_date.day,
                     title=post.title).count():
                 form.errors.setdefault('title', []).append('must enter in a unique title for the day.')
             elif request.has_key('_preview'):

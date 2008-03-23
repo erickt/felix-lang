@@ -20,7 +20,7 @@ def html2text(text):
         f.flush()
 
         cmd = ['lynx', '-cfg', settings.LYNX_CFG, '-dump', '-force_html', f.name]
-        
+
         outfile, infile = popen2.popen4(cmd)
 
         for line in outfile:

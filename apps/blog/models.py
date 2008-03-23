@@ -29,7 +29,7 @@ class Post(models.Model):
     class Meta:
         ordering = ('-pub_date',)
         get_latest_by = 'pub_date'
-    
+
     class Admin:
         fields = (
             ('Tags', {'fields': ('tags',)}),
@@ -47,7 +47,7 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return '/blog/%s/%s/' % (
-                self.pub_date.strftime('%Y/%b/%d').lower(), 
+                self.pub_date.strftime('%Y/%b/%d').lower(),
                 self.slug,
                 )
 

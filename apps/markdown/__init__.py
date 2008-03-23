@@ -8,7 +8,7 @@ from markdown import Markdown
 # -----------------------------------------------------------------------------
 
 md = Markdown(
-    extensions=['pygments'], 
+    extensions=['pygments'],
     extension_configs={'pygments': [('formatter', 'tablehtml')]},
 )
 

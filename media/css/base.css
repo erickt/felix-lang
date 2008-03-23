@@ -93,7 +93,7 @@ div.sidebar {
 	color: gray;
 }
 
-ul.linklist { 
+ul.linklist {
 	margin: 0px;
 	padding: 0px;
 }
@@ -121,7 +121,7 @@ div.clearer {clear: both; line-height: 0; height: 0; }
 	text-align: center;
 }
 
-.highlight { 
+.highlight {
 	background-color: #ffffff;
 	font-family: monospace;
 	padding: 10px 10px 10px 0;
