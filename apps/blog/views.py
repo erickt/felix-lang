@@ -114,7 +114,7 @@ def mail_post(request, id):
                 form.cleaned_data['title'],
                 form.cleaned_data['body'],
                 '%s %s <%s>' % (request.user.first_name, request.user.last_name, request.user.email),
-                [form.cleaned_data['to']],
+                form.cleaned_data['to'].split(),
                 post.message_id,
             )
             post.save()
@@ -130,7 +130,7 @@ def mail_post(request, id):
             body = html2text(post.body)
 
         form = MailForm({
-            'to': 'felix-language@googlegroups.com',
+            'to': 'felix-language@googlegroups.com felix-language@lists.sourceforge.net',
             'title': post.title,
             'body': body,
         })
