@@ -1,10 +1,10 @@
 from django.db import models
 
 class CodeBlock(models.Model):
-    title = models.CharField(maxlength=200)
+    title = models.CharField(max_length=200)
     slug = models.SlugField(primary_key=True)
     description = models.TextField(blank=True)
-    filetype = models.CharField(maxlength=30, blank=True)
+    filetype = models.CharField(max_length=30, blank=True)
     code = models.TextField()
     output = models.TextField()
     html_code = models.TextField(blank=True, help_text='leave blank to autogenerate')

@@ -2,7 +2,7 @@ from django.db import models
 
 class Tag(models.Model):
     slug = models.SlugField(primary_key=True)
-    title = models.CharField(maxlength=30)
+    title = models.CharField(max_length=30)
 
     class Meta:
         ordering = ('title',)

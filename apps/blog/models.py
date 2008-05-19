@@ -18,13 +18,13 @@ class Post(models.Model):
     pub_date = models.DateTimeField('publication date', blank=True)
     mod_date = models.DateTimeField('modification date', blank=True)
     author = models.ForeignKey(User)
-    title = models.CharField(maxlength=200)
+    title = models.CharField(max_length=200)
     slug = models.SlugField(prepopulate_from=('title',), unique_for_date='pub_date')
     tags = models.ManyToManyField(Tag, blank=True)
-    format = models.CharField(maxlength=30, choices=BODY_TYPE_CHOICES)
+    format = models.CharField(max_length=30, choices=BODY_TYPE_CHOICES)
     body = models.TextField(help_text='use html')
     html_body = models.TextField(blank=True)
-    message_id = models.CharField(maxlength=200, blank=True)
+    message_id = models.CharField(max_length=200, blank=True)
 
     class Meta:
         ordering = ('-pub_date',)
