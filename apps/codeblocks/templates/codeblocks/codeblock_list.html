@@ -19,8 +19,8 @@
 				<h3>{{ object.title|escape }}</h3>
 				{% if user.is_staff %}
 				<div class="small">
-					[<a href="/codeblocks/update/{{ object.slug }}">update</a>]
-					[<a href="/codeblocks/delete/{{ object.slug }}">delete</a>]
+					[<a href="/codeblocks/update/{{ object.slug }}/">update</a>]
+					[<a href="/codeblocks/delete/{{ object.slug }}/">delete</a>]
 				</div>
 				{% endif %}
 				<div class="small">{{ object.description }}</div>

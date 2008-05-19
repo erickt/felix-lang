@@ -68,7 +68,7 @@ def add_edit_tag(request, slug=None):
                 request.user.message_set.create(
                         message=msg + ' ' + 'You may edit it again below.')
 
-                return HttpResponseRedirect('/tags/%s/update' % tag.slug)
+                return HttpResponseRedirect('/tags/%s/update/' % tag.slug)
             else:
                 request.user.message_set.create(message=msg)
                 return HttpResponseRedirect('/tags/')

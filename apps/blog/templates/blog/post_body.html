@@ -1,6 +1,6 @@
 <p class="date small">
 	posted on {{ object.pub_date|date:"F d, Y - h:i A T" }}
-	by <a href="/authors/{{ object.author }}">{{ object.author.first_name|escape }} {{ object.author.last_name|escape }}</a>
+	by <a href="/authors/{{ object.author }}/">{{ object.author.first_name|escape }} {{ object.author.last_name|escape }}</a>
 	{% if object.has_tags %}
 		<br/>
 		filed under:
@@ -11,9 +11,9 @@
 	{% if user.is_staff %}
 		<br/>
 		admin:
-		<a href="/blog/post/{{ object.id }}/update">edit</a>,
-		<a href="/blog/post/{{ object.id }}/mail">mail</a>,
-		<a href="/blog/post/{{ object.id }}/delete">delete</a>
+		<a href="/blog/post/{{ object.id }}/update/">edit</a>,
+		<a href="/blog/post/{{ object.id }}/mail/">mail</a>,
+		<a href="/blog/post/{{ object.id }}/delete/">delete</a>
 	{% endif %}
 </p>
 <div>{{ object.html_body|safe }}</div>

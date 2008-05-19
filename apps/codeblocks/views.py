@@ -77,7 +77,7 @@ def add_edit_codeblock(request, slug=None):
                 request.user.message_set.create(
                         message=msg + ' ' + 'You may edit it again below.')
 
-                return HttpResponseRedirect('/codeblocks/%s/update' % codeblock.slug)
+                return HttpResponseRedirect('/codeblocks/%s/update/' % codeblock.slug)
             else:
                 request.user.message_set.create(message=msg)
                 return HttpResponseRedirect('/codeblocks/')

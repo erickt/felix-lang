@@ -76,9 +76,9 @@ def add_edit_post(request, id=None):
                     request.user.message_set.create(
                             message=msg + ' ' + 'You may edit it again below.')
 
-                    return HttpResponseRedirect('/blog/post/%s/update' % post.id)
+                    return HttpResponseRedirect('/blog/post/%s/update/' % post.id)
                 elif request.has_key('_sendmail'):
-                    return HttpResponseRedirect('/blog/post/%s/mail' % post.id)
+                    return HttpResponseRedirect('/blog/post/%s/mail/' % post.id)
                 else:
                     request.user.message_set.create(message=msg)
                     return HttpResponseRedirect('/blog/')
