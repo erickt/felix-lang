@@ -15,7 +15,6 @@ urlpatterns = patterns('',
     (r'^blog/', include('felix_website.apps.blog.urls')),
     (r'^tags/', include('felix_website.apps.tags.urls')),
     (r'^authors/', include('felix_website.apps.authors.urls')),
-    (r'^profiles/', include('felix_website.apps.profiles.urls')),
     (r'^pygments/', include('felix_website.apps.pygments.urls')),
     (r'^admin/', include('django.contrib.admin.urls')),
 )
