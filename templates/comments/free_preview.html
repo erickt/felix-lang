@@ -26,13 +26,13 @@
 {% endif %}
 
 {% if comment_form.person_name.errors %}
-    {{ comment_form.person_name.html_error_list }}
+    {{ comment_form.person_name.html_error_list|safe }}
 {% endif %}
 
 <p><label for="id_person_name">Your name:</label> {{ comment_form.person_name }}</p>
 
 {% if comment_form.comment.errors %}
-{{ comment_form.comment.html_error_list }}
+{{ comment_form.comment.html_error_list|safe }}
 {% endif %}
 
 <p><label for="id_person_name">Comment:</label><br />{{ comment_form.comment }}</p>

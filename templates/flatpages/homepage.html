@@ -22,10 +22,10 @@
 <div id="codeblock" class="sidebar">
 	<h3 class="sidebar-title">Example: {{ codeblock.title|escape }}</h3>
 	<p id="codeblock-description">{{ codeblock.description }}</p>
-	{{ codeblock.html_code }}
-	{% if codeblock.html_output %}
+	{{ codeblock.html_code|safe }}
+	{% if codeblock.html_output|safe %}
 		<h3 class="sidebar-title">Output:</h3>
-		{{ codeblock.html_output }}
+		{{ codeblock.html_output|safe }}
 	{% endif %}
 	<div id="codeblock-see-all">
 		<a href="/codeblocks">see all</a>

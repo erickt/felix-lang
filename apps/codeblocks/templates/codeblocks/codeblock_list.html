@@ -26,10 +26,10 @@
 				<div class="small">{{ object.description }}</div>
 			</td>
 			<td class="codeblock-code">
-				{{ object.html_code }}
+				{{ object.html_code|safe }}
 			</td>
 			<td class="codeblock-code">
-				{{ object.html_output }}
+				{{ object.html_output|safe }}
 			</td>
 		</tr>
 	{% endfor %}
