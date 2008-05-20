@@ -3,9 +3,15 @@ from django.conf import settings
 from django.contrib.comments.models import FreeComment
 from django.conf.urls.defaults import *
 
+from apps.feeds import LatestEntries
+
 comments_info_dict = {
     'queryset': FreeComment.objects.all(),
     'paginate_by': 15,
+}
+
+feeds = {
+    'latest': LatestEntries,
 }
 
 urlpatterns = patterns('',
@@ -17,6 +23,7 @@ urlpatterns = patterns('',
     (r'^authors/', include('felix_website.apps.authors.urls')),
     (r'^pygments/', include('felix_website.apps.pygments.urls')),
     (r'^admin/', include('django.contrib.admin.urls')),
+    (r'^feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.feed', {'feed_dict': feeds}),
 )
 
 if os.path.exists(os.path.join(settings.PROJECT_DIR, 'urls_local.py')):
