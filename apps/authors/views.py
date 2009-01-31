@@ -6,9 +6,9 @@ from django.template import RequestContext
 from django.views.generic.date_based import archive_index, archive_month, archive_day
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-import django.newforms as forms
+import django.forms as forms
 
-from apps.blog.models import Post
+from felix_website.apps.blog.models import Post
 
 
 def authors_view(request, username, view, args, kwds):

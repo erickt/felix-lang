@@ -6,15 +6,14 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
-import django.newforms as forms
+from django import forms
 from django.conf import settings
 
-from apps.blog.models import Post, BODY_TYPE_CHOICES
-from apps.tags.models import Tag
-from apps.blog.forms import PostForm, MailForm
-
-from apps.markdown import markdown
-from apps.mail import send_mail, create_message_id, html2text
+from felix_website.apps.blog.models import Post, BODY_TYPE_CHOICES
+from felix_website.apps.tags.models import Tag
+from felix_website.apps.blog.forms import PostForm, MailForm
+from felix_website.apps.markdown import markdown
+from felix_website.apps.mail import send_mail, create_message_id, html2text
 
 # -----------------------------------------------------------------------------
 

@@ -3,8 +3,8 @@ import datetime
 from django import template
 from django.contrib.auth.models import User
 
-from apps.blog.models import Post
-from apps.tags.models import Tag
+from felix_website.apps.blog.models import Post
+from felix_website.apps.tags.models import Tag
 
 register = template.Library()
 

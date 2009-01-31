@@ -1,5 +1,6 @@
 from django.contrib.syndication.feeds import Feed, FeedDoesNotExist
-from apps.blog.models import Post
+
+from felix_website.apps.blog.models import Post
 
 class LatestEntries(Feed):
     title = 'felix-lang.org news'

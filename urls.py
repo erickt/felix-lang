@@ -1,12 +1,15 @@
 import os
 from django.conf import settings
-from django.contrib.comments.models import FreeComment
+from django.contrib import admin
+from django.contrib.comments.models import Comment
 from django.conf.urls.defaults import *
 
-from apps.feeds import LatestEntries
+from felix_website.apps.feeds import LatestEntries
+
+admin.autodiscover()
 
 comments_info_dict = {
-    'queryset': FreeComment.objects.all(),
+    'queryset': Comment.objects.all(),
     'paginate_by': 15,
 }
 
@@ -22,13 +25,9 @@ urlpatterns = patterns('',
     (r'^tags/', include('felix_website.apps.tags.urls')),
     (r'^authors/', include('felix_website.apps.authors.urls')),
     (r'^pygments/', include('felix_website.apps.pygments.urls')),
-    (r'^admin/', include('django.contrib.admin.urls')),
+    (r'^admin/(.*)', admin.site.root),
     (r'^feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.feed', {'feed_dict': feeds}),
 )
 
 if os.path.exists(os.path.join(settings.PROJECT_DIR, 'urls_local.py')):
     execfile(os.path.join(settings.PROJECT_DIR, 'urls_local.py'))
-
-urlpatterns += patterns('',
-     (r'', include('django.contrib.flatpages.urls')),
-)

@@ -4,13 +4,13 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
-import django.newforms as forms
+from django import forms
 
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import get_formatter_by_name
 
-from apps.codeblocks.models import CodeBlock
+from felix_website.apps.codeblocks.models import CodeBlock
 
 # -----------------------------------------------------------------------------
 

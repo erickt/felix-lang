@@ -1,7 +1,8 @@
-from django import template
-from apps.codeblocks.models import CodeBlock
 import datetime
 import random
+from django import template
+
+from felix_website.apps.codeblocks.models import CodeBlock
 
 class RandomCodeBlockNode(template.Node):
     def __init__(self, varname):

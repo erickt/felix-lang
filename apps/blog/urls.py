@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import *
-from apps.blog.models import Post
-from apps.tags.models import Tag
+
+from felix_website.apps.blog.models import Post
+from felix_website.apps.tags.models import Tag
 
 info_dict = {
     'queryset': Post.objects.all().select_related(),

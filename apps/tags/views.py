@@ -5,10 +5,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.views.generic.date_based import archive_index, archive_month, archive_day
 from django.contrib.auth.decorators import login_required
-import django.newforms as forms
+from django import forms
 
-from apps.blog.models import Post
-from apps.tags.models import Tag
+from felix_website.apps.blog.models import Post
+from felix_website.apps.tags.models import Tag
 
 
 def tags_view(request, slug, view, args, kwds):

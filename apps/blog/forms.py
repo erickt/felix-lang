@@ -1,6 +1,7 @@
-import django.newforms as forms
-from apps.tags.models import Tag
-from apps.blog.models import Post, BODY_TYPE_CHOICES
+from django import forms
+
+from felix_website.apps.tags.models import Tag
+from felix_website.apps.blog.models import Post, BODY_TYPE_CHOICES
 
 # -----------------------------------------------------------------------------
 

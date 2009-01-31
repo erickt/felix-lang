@@ -1,3 +1,4 @@
+from django.contrib import admin
 from django.db import models
 
 class CodeBlock(models.Model):
@@ -10,11 +11,6 @@ class CodeBlock(models.Model):
     html_code = models.TextField(blank=True, help_text='leave blank to autogenerate')
     html_output = models.TextField(blank=True)
 
-    class Admin:
-        fields = (
-                (None, {'fields': ('title', 'slug', 'description', 'filetype', 'code', 'html', 'output')}),
-                )
-
     class Meta:
         ordering = ('slug',)
         get_latest_by = 'slug'
@@ -24,3 +20,8 @@ class CodeBlock(models.Model):
 
     def get_absolute_url(self):
         return '/codeblocks/' + self.slug
+
+class CodeBlockAdmin(admin.ModelAdmin):
+    fields = ('title', 'slug', 'description', 'filetype', 'code', 'html_code', 'html_output')
+
+admin.site.register(CodeBlock, CodeBlockAdmin)
