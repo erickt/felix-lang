@@ -59,12 +59,12 @@ def add_edit_tag(request, slug=None):
 
             msg = 'The tag "%s" was added successfully.' % tag
 
-            if request.has_key('_addanother'):
+            if '_addanother' in request:
                 request.user.message_set.create(
                         message=msg + ' ' + 'You may add another tag below.')
 
                 return HttpResponseRedirect('/tags/create/')
-            elif request.has_key('_continue'):
+            elif '_continue' in request:
                 request.user.message_set.create(
                         message=msg + ' ' + 'You may edit it again below.')
 
