@@ -55,7 +55,7 @@ def add_edit_post(request, id=None):
                     pub_date__day=post.pub_date.day,
                     title=post.title).count():
                 form.errors.setdefault('title', []).append('must enter in a unique title for the day.')
-            elif '_preview' in request:
+            elif '_preview' in request.POST:
                 pass
             else:
                 post.save()
@@ -66,17 +66,17 @@ def add_edit_post(request, id=None):
 
                 msg = 'The post "%s" was added successfully.' % post
 
-                if '_addanother' in request:
+                if '_addanother' in request.POST:
                     request.user.message_set.create(
                             message=msg + ' ' + 'You may add another post below.')
 
                     return HttpResponseRedirect('/blog/post/create/')
-                elif '_continue' in request:
+                elif '_continue' in request.POST:
                     request.user.message_set.create(
                             message=msg + ' ' + 'You may edit it again below.')
 
                     return HttpResponseRedirect('/blog/post/%s/update/' % post.id)
-                elif '_sendmail' in request:
+                elif '_sendmail' in request.POST:
                     return HttpResponseRedirect('/blog/post/%s/mail/' % post.id)
                 else:
                     request.user.message_set.create(message=msg)
