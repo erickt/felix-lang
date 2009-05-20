@@ -81,7 +81,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.flatpages',
-    'django.contrib.comments',
     'django.contrib.markup',
     'django.contrib.contenttypes',
     'django.contrib.formtools',
