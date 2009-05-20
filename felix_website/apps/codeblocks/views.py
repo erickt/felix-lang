@@ -36,7 +36,7 @@ def add_edit_codeblock(request, slug=None):
     if request.method == 'POST':
         form = CodeBlockForm(request.POST)
         if form.is_valid():
-            formatter = get_formatter_by_name('tablehtml')
+            formatter = get_formatter_by_name('html')
 
             filetype = form.cleaned_data['filetype']
             code = form.cleaned_data['code']
