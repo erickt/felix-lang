@@ -7,6 +7,27 @@ p.date {
 	color: gray;
 }
 
-p.blog-body {
-	padding-top: 10px;
+.blog-body table {
+	border-collapse: collapse;
+	border: 1px solid #CCC;
+	margin-top: 0px;
+	margin-bottom: 11px;
+}
+
+.blog-body th {
+	font-weight: bold;
+}
+
+.blog-body th, .blog-body td {
+	border: 1px solid #CCC;
+	padding: 5px;
+}
+
+.blog-body .highlighttable {
+	border: 0;
+}
+
+.blog-body .highlighttable th, .blog-body .highlighttable td {
+	border: 0;
+	padding: 0;
 }
