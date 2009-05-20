@@ -68,12 +68,12 @@ def add_edit_codeblock(request, slug=None):
 
             msg = 'The codeblock "%s" was added successfully.' % codeblock
 
-            if '_addanother' in request:
+            if '_addanother' in request.POST:
                 request.user.message_set.create(
                         message=msg + ' ' + 'You may add another codeblock below.')
 
                 return HttpResponseRedirect('/codeblocks/create/')
-            elif '_continue' in request:
+            elif '_continue' in request.POST:
                 request.user.message_set.create(
                         message=msg + ' ' + 'You may edit it again below.')
 
