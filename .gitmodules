@@ -1,6 +1,9 @@
 [submodule "django"]
 	path = django
 	url = http://git.felix-lang.org/r/django.git
+[submodule "markdown"]
+	path = markdown
+	url = http://git.felix-lang.org/r/markdown.git
 [submodule "pygments"]
 	path = pygments
 	url = http://git.felix-lang.org/r/pygments.git

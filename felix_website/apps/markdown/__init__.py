@@ -8,10 +8,9 @@ from markdown import Markdown
 # -----------------------------------------------------------------------------
 
 md = Markdown(
-    extensions=['pygments'],
-    extension_configs={'pygments': [('formatter', 'tablehtml')]},
+    extensions=['abbr', 'codehilite', 'fenced_code', 'footnotes', 'tables'],
+    extension_configs={'codehilite': [('css_class', 'highlight')]},
 )
 
 def markdown(text):
-    print md
     return md.convert(text)
