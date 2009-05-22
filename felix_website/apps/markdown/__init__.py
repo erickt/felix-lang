@@ -8,7 +8,7 @@ from markdown import Markdown
 # -----------------------------------------------------------------------------
 
 md = Markdown(
-    extensions=['abbr', 'codehilite', 'fenced_code', 'footnotes', 'tables'],
+    extensions=['abbr', 'footnotes', 'tables', 'codehilite'],
     extension_configs={'codehilite': [('css_class', 'highlight')]},
 )
 
