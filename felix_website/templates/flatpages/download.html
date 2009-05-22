@@ -5,31 +5,20 @@
 {% block content %}
 <h2>Current Development Version</h2>
 <p>
-Felix is free to <a href="/license">use</a>. It is in constant development,
-so the best way to use it is through
-<a href="http://subversion.tigris.org">Subversion</a>:
+Felix is free to <a href="/license">use</a>. It is in constant development, so
+the best way to use it is through <a href="http://git-scm.org">Git</a>:
 </p>
 
-<p>
-<pre>svn co https://felix.svn.sourceforge.net/svnroot/felix/felix/trunk felix</pre>
-</p>
-
-<h2>Older Versions</h2>
-<p>
-I highly recommend you use the development version. It has many bug fixes and
-new and interseting features. However, if you want an older version, you can
-find them here:
-</p>
-
-<ul>
-	<li><a href="http://felix.sourceforge.net/flx_1.1.3_rc4_src.tgz">1.1.3</a></li>
-	<li><a href="http://downloads.sourceforge.net/felix/flx_1.1.2_rc4_src.tgz">1.1.2_rc4</a></li>
-</ul>
+<pre>
+git clone http://git.felix-lang.org/r/felix.git
+git submodule init
+git submodule update
+</pre>
 
 <h2>Prerequisites</h2>
 <ul>
-	<li>Install <a href="http://caml.inria.fr/">O'Caml</a>, 3.09 or above.</li>
-	<li>Install <a href="http://python.org">Python</a>.</li>
+	<li>Install <a href="http://caml.inria.fr/">O'Caml 3.11</a> or above.</li>
+	<li>Install <a href="http://www.python.org/download/releases/3.0.1/">Python 3.0</a> or above.</li>
 	<li>
 		Install a C++ compiler. <a href="http://gcc.gnu.org/">GCC</a> and
 		<a href="http://msdn2.microsoft.com/en-us/visualc/default.aspx">MSVC</a>
@@ -39,36 +28,12 @@ find them here:
 
 <h2>How to Build</h2>
 <ul>
-	<li>Default Options (unix-like):
-		<ul>
-			<li>Run <code>autogen.sh</code>.</li>
-		</ul>
-		or run
-		<ul>
-			<li>Run <code>configure [config options]</code>.</li>
-			<li>Run <code>mk [build options]</code>.</li>
-		</ul>
-	</li>
-	<li>Default Options (msvc):
-		<ul>
-			<li>Run <code>boot.bat</code> to initialize the system.</li>
-			<li>Run either
-				<code>win32config.bat [config options]</code>,
-				<code>win64config.bat [config options]</code>,
-				<code>win3264config.bat [config options]</code>,
-				<code>vista32config.bat [config options]</code>, or
-				<code>vista64config.bat [config options]</code>.
-			</li>
-			<li>Run <code>mk --phase=build [build options]</code>.</li>
-			<li>Run <code>mk --phase=host [build options]</code>.</li>
-			<li>Run <code>mk --phase=target [build options]</code>.</li>
-		</ul>
-	</li>
+	<li>Run <code>python3 fbuild/fbuild-light</code></li>
 </ul>
 
 <p>
-See <code>configure --help</code> and <code>mk --help</code> for a description
-of the config and build options.
+See <code>python3 fbuild/fbuild-light --help</code> for a description of the
+config and build options.
 </p>
 
 <h2>Troubleshooting</h2>
