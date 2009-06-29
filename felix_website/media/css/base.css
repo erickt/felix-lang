@@ -124,3 +124,8 @@ div.clearer {clear: both; line-height: 0; height: 0; }
 .highlighttable .code {
 	width: 100%;
 }
+
+div.highlight {
+	padding-bottom: 10px;
+	background: inherit;
+}
